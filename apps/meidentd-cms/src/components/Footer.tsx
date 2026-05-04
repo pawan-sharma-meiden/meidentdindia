@@ -15,7 +15,7 @@ export default function Footer() {
         <footer className="w-full bg-white text-gray-700 font-sans">
 
             {/* CTA Section */}
-            <div className="border-b border-gray-300 bg-gray-50">
+            {/* <div className="border-b border-gray-300 bg-gray-50">
                 <div className="container mx-auto px-6 md:px-12 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
                     <div>
                         <h3 className="text-2xl text-gray-900 font-bold tracking-tight mb-2">
@@ -31,7 +31,7 @@ export default function Footer() {
                         </button>
                     </Link>
                 </div>
-            </div>
+            </div> */}
 
             {/* Main Footer Content */}
             <div className="container mx-auto px-6 md:px-12 py-16 lg:py-24">
