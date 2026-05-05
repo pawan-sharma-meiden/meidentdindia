@@ -367,7 +367,7 @@ export default function DynamicPage() {
           <div className="sticky top-[100px]">
             <div className="bg-white rounded-sm border border-gray-300 shadow-xl shadow-gray-300/50 p-6">
               <h3 className="font-mono text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-6 flex items-center gap-2">
-                 <LayoutGrid size={12} /> Sections
+                 <LayoutGrid size={12} /> {page.title} Sections
               </h3>
               
               <nav className="space-y-2">
