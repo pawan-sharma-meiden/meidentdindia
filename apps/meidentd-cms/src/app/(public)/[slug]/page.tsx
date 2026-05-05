@@ -198,7 +198,7 @@ function FeatureBlock({ section, index }: { section: SectionData; index: number 
         <div className={cn("flex-1 min-w-0", hasImages ? "lg:w-1/2" : "w-full")}>
           <div className="flex items-center gap-3 mb-6">
              <span className="font-mono text-xs font-bold text-blue-700 bg-blue-50 px-2 py-1 rounded-sm uppercase tracking-wider">
-                Specification 0{index + 1}
+                Specification 0{section.order + 1}
              </span>
              <div className="h-px flex-1 bg-gray-300"></div>
           </div>
