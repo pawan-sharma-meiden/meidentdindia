@@ -384,7 +384,7 @@ export default function ContactPage() {
               Gurgaon-122002, India
             </p>
             <div className="mt-auto pt-6 border-t border-slate-50">
-               <a href="#" className="inline-flex items-center gap-2 text-xs font-mono font-bold text-blue-700 uppercase tracking-widest hover:underline">
+               <a href="https://maps.app.goo.gl/of8fxmSnCmqyG2ua8" className="inline-flex items-center gap-2 text-xs font-mono font-bold text-blue-700 uppercase tracking-widest hover:underline">
                  View on Map <ArrowRight size={14} />
                </a>
             </div>
