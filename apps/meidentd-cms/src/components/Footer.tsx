@@ -54,9 +54,9 @@ export default function Footer() {
 
                         {/* Social Links */}
                         <div className="flex items-center gap-4">
-                            <SocialLink href="#" icon={<Linkedin size={18} />} label="LinkedIn" />
-                            <SocialLink href="#" icon={<Twitter size={18} />} label="Twitter" />
-                            <SocialLink href="#" icon={<Facebook size={18} />} label="Facebook" />
+                            <SocialLink href="https://www.linkedin.com/company/meiden-t-d-india-limited/" icon={<Linkedin size={18} />} label="LinkedIn" />
+                            {/* <SocialLink href="#" icon={<Twitter size={18} />} label="Twitter" />
+                            <SocialLink href="#" icon={<Facebook size={18} />} label="Facebook" /> */}
                         </div>
                     </div>
 
@@ -87,9 +87,10 @@ export default function Footer() {
                             <div className="flex items-start gap-3">
                                 <MapPin className="text-blue-700 mt-1 shrink-0" size={16} />
                                 <span className="text-gray-700">
-                  Unit No. 01, 12th Floor,<br />
-                  Building No. 9B, DLF Cyber City,<br />
-                  Phase III, Gurgaon - 122002, India
+                                            Building No. 10, Tower C, 1st Floor,<br/>
+                                            DLF Cyber City, Phase - II,<br/>
+                                            Gurgaon-122002, India
+
                 </span>
                             </div>
                             <div className="flex items-center gap-3">
