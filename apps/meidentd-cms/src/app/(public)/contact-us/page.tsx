@@ -189,7 +189,7 @@ function ContactFormModal({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
                   </div>
                   <div>
                     <p className="font-mono text-[10px] text-blue-400 uppercase tracking-widest mb-1">Email</p>
-                    <p className="font-sans text-sm text-slate-300">info@meidensha.com</p>
+                    <p className="font-sans text-sm text-slate-300">info@meiden.in</p>
                   </div>
                 </div>
             </div>
@@ -412,7 +412,7 @@ export default function ContactPage() {
                 </div>
                 <div className="flex items-center gap-4 group">
                    <div className="p-2 bg-white/5 rounded text-blue-400 group-hover:text-white transition-colors"><Mail size={18} /></div>
-                   <span className="font-mono text-sm font-bold text-slate-300 group-hover:text-white transition-colors tracking-wide">info@meidensha.com</span>
+                   <span className="font-mono text-sm font-bold text-slate-300 group-hover:text-white transition-colors tracking-wide">info@meiden.in</span>
                 </div>
               </div>
             </div>
