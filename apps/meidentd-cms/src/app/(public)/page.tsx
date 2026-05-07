@@ -23,28 +23,28 @@ const HERO_IMAGES = [
   '/images/hero/hero5.jpg',
 ];
 
-const NEWS = [
-  {
-    date: '2024-10-03',
-    title: 'Meiden T&D receives a large-scale order for a part of Traction substation equipment to be used in India\'s Mumbai-Ahmedabad High Speed Rail Project.',
-    category: 'Information'
-  },
-  {
-    date: '2024-06-11',
-    title: 'Meiden T&D receives certificate of appreciation for running its plant on Green Fuel.',
-    category: 'Information'
-  },
-  {
-    date: '2024-07-20',
-    title: 'Meiden T&D celebrates its Annual Day.',
-    category: 'Information'
-  },
-  {
-    date: '2024-04-24',
-    title: 'Notice of system maintenance.',
-    category: 'Information'
-  },
-];
+// const NEWS = [
+//   {
+//     date: '2024-10-03',
+//     title: 'Meiden T&D receives a large-scale order for a part of Traction substation equipment to be used in India\'s Mumbai-Ahmedabad High Speed Rail Project.',
+//     category: 'Information'
+//   },
+//   {
+//     date: '2024-06-11',
+//     title: 'Meiden T&D receives certificate of appreciation for running its plant on Green Fuel.',
+//     category: 'Information'
+//   },
+//   {
+//     date: '2024-07-20',
+//     title: 'Meiden T&D celebrates its Annual Day.',
+//     category: 'Information'
+//   },
+//   {
+//     date: '2024-04-24',
+//     title: 'Notice of system maintenance.',
+//     category: 'Information'
+//   },
+// ];
 
 function HeroCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -99,41 +99,292 @@ function HeroCarousel() {
   );
 }
 
-function NewsSection() {
-  return (
-      <div className="max-w-4xl mx-auto px-4 py-16 md:py-24">
-        <div className="mb-8">
-          <div className="flex gap-4 border-b border-gray-300 mb-6">
-            <button
-                className="pb-4 font-bold text-gray-900 border-b-2 border-gray-900"
-                style={{ color: COLORS.darkBlue }}
-            >
-              News Releases
-            </button>
-          </div>
-        </div>
+// const COLORS = {
+//   darkBlue: "#003087",
+// };
+ 
+type NewsDetailContent =
+  | { type: "text"; body: string; note?: string }
+  | { type: "image"; src: string; alt: string }
+  | { type: "pdf"; href: string; label: string }
+  | { type: "maintenance"; schedule: string; notes: string[] };
+ 
+interface NewsItem {
+  date: string;
+  category: string;
+  title: string;
+  year: string;
+  detail: NewsDetailContent;
+}
+ 
+const NEWS: NewsItem[] = [
+  {
+    date: "2024-10-03",
+    category: "Information",
+    title:
+      "Meiden T&D receives a large-scale order for a part of Traction substation equipment to be used in India's Mumbai-Ahmedabad High Speed Rail Project.",
+    year: "2024",
+    detail: {
+      type: "pdf",
+      href: "https://meidentd.in/images/news/dfd28e02bcfeceec4088f5766cf07724.pdf",
+      label: "View Document",
+    },
+  },
+  {
+    date: "2024-06-11",
+    category: "Information",
+    title:
+      "Meiden T&D receives certificate of appreciation for running its plant on Green Fuel.",
+    year: "2024",
+    detail: {
+      type: "image",
+      src: "https://meidentd.in/images/news/8d69d72a95e182189233e6fb9c82e30d.jpeg",
+      alt: "Certificate of appreciation for Green Fuel",
+    },
+  },
+  {
+    date: "2024-07-20",
+    category: "Information",
+    title: "Meiden T&D celebrates its Annual Day.",
+    year: "2024",
+    detail: {
+      type: "pdf",
+      href: "https://meidentd.in/images/news/6ec7640b69f23e00a1255017357241fe.pdf",
+      label: "View Document",
+    },
+  },
+  {
+    date: "2024-04-24",
+    category: "Information",
+    title: "Notice of system maintenance.",
+    year: "2024",
+    detail: {
+      type: "maintenance",
+      schedule: "Sunday, February 25, 2024  06:30 – 12:30",
+      notes: [
+        "During the above period, there will be intermittent inability to access the website.",
+        "The time may vary depending on the work progress.",
+      ],
+    },
+  },
+  {
+    date: "2024-04-24",
+    category: "Information",
+    title: "Notice of system maintenance.",
+    year: "2024",
+    detail: {
+      type: "maintenance",
+      schedule: "Sunday, February 25, 2024  06:30 – 12:30",
+      notes: [
+        "During the above period, there will be intermittent inability to access the website.",
+        "The time may vary depending on the work progress.",
+      ],
+    },
+  },
+];
 
-        <div className="space-y-4">
-          {NEWS.map((item, idx) => (
-              <a
-                  key={idx}
-                  href={`/news-release.php?data=${idx}`}
-                  className="block p-4 border border-gray-300 hover:bg-gray-50 transition-colors"
-              >
-                <div className="flex gap-4">
-                  <div className="text-sm text-gray-500 min-w-max">{item.date}</div>
-                  <div className="flex-1">
-                    <div className="text-xs text-gray-500 mb-1">{item.category}</div>
-                    <div className="text-gray-900 text-sm leading-relaxed hover:underline">
-                      {item.title}
-                    </div>
-                  </div>
-                </div>
-              </a>
+function NewsDetailPage({
+  item,
+  onBack,
+}: {
+  item: NewsItem;
+  onBack: () => void;
+}) {
+  return (
+    <div className="max-w-4xl mx-auto px-4 py-16 md:py-24">
+      {/* Breadcrumb */}
+      <nav className="text-xs text-gray-500 mb-8 flex flex-wrap gap-1 items-center">
+        <button
+          onClick={onBack}
+          className="hover:underline"
+          style={{ color: COLORS.darkBlue }}
+        >
+          Home
+        </button>
+        <span>/</span>
+        <button
+          onClick={onBack}
+          className="hover:underline"
+          style={{ color: COLORS.darkBlue }}
+        >
+          News-Releases
+        </button>
+        <span>/</span>
+        <span>{item.year}</span>
+        <span>/</span>
+        <span className="text-gray-700 truncate max-w-xs">{item.title}</span>
+      </nav>
+ 
+      {/* Year label */}
+      <p
+        className="text-xs font-bold uppercase tracking-widest mb-4"
+        style={{ color: COLORS.darkBlue }}
+      >
+        News Releases {item.year}
+      </p>
+ 
+      {/* Title */}
+      <h2 className="text-xl md:text-2xl font-semibold text-gray-900 mb-3 leading-snug">
+        {item.title}
+      </h2>
+ 
+      {/* Date */}
+      <p className="text-sm text-gray-500 mb-8">{item.date}</p>
+ 
+      <hr className="border-gray-200 mb-8" />
+ 
+      {/* Body quote */}
+      <blockquote className="border-l-4 pl-4 text-gray-700 italic mb-8" style={{ borderColor: COLORS.darkBlue }}>
+        "{item.title}"
+      </blockquote>
+ 
+      {/* Detail content */}
+      <DetailContent detail={item.detail} />
+ 
+      {/* Back link */}
+      <div className="mt-12 pt-6 border-t border-gray-200">
+        <button
+          onClick={onBack}
+          className="text-sm font-medium flex items-center gap-2 hover:underline"
+          style={{ color: COLORS.darkBlue }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-4 h-4"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fillRule="evenodd"
+              d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+              clipRule="evenodd"
+            />
+          </svg>
+          News-Releases
+        </button>
+      </div>
+    </div>
+  );
+}
+ 
+function DetailContent({ detail }: { detail: NewsDetailContent }) {
+  if (detail.type === "pdf") {
+    return (
+      <a
+        href={detail.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-80"
+        style={{ backgroundColor: COLORS.darkBlue }}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-4 h-4"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"
+          />
+        </svg>
+        {detail.label}
+      </a>
+    );
+  }
+ 
+  if (detail.type === "image") {
+    return (
+      <img
+        src={detail.src}
+        alt={detail.alt}
+        className="max-w-full border border-gray-200 shadow-sm"
+      />
+    );
+  }
+ 
+  if (detail.type === "maintenance") {
+    return (
+      <div className="space-y-4 text-sm text-gray-700">
+        <p>
+          In order to perform system maintenance, accessing to our Web site will
+          be suspended within the following period.
+        </p>
+        <div className="bg-gray-50 border border-gray-200 p-4">
+          <p className="font-semibold mb-1">System maintenance schedule:</p>
+          <p>{detail.schedule}</p>
+        </div>
+        <ul className="list-disc pl-5 space-y-1">
+          {detail.notes.map((n, i) => (
+            <li key={i}>{n}</li>
           ))}
+        </ul>
+        <p className="text-gray-500 italic">
+          We apologize for any inconvenience caused by this.
+        </p>
+      </div>
+    );
+  }
+ 
+  return null;
+}
+ 
+// ── List page (your original NewsSection) ────────────────────────────────────
+function NewsListPage({ onSelect }: { onSelect: (idx: number) => void }) {
+  return (
+    <div className="max-w-4xl mx-auto px-4 py-16 md:py-24">
+      <div className="mb-8">
+        <div className="flex gap-4 border-b border-gray-300 mb-6">
+          <button
+            className="pb-4 font-bold border-b-2"
+            style={{ color: COLORS.darkBlue, borderColor: COLORS.darkBlue }}
+          >
+            News Releases
+          </button>
         </div>
       </div>
+ 
+      <div className="space-y-4">
+        {NEWS.map((item, idx) => (
+          <button
+            key={idx}
+            onClick={() => onSelect(idx)}
+            className="w-full text-left block p-4 border border-gray-300 hover:bg-gray-50 transition-colors"
+          >
+            <div className="flex gap-4">
+              <div className="text-sm text-gray-500 min-w-max">{item.date}</div>
+              <div className="flex-1">
+                <div className="text-xs text-gray-500 mb-1">
+                  {item.category}
+                </div>
+                <div className="text-gray-900 text-sm leading-relaxed hover:underline">
+                  {item.title}
+                </div>
+              </div>
+            </div>
+          </button>
+        ))}
+      </div>
+    </div>
   );
+}
+
+function NewsSection() {
+  const [activeIdx, setActiveIdx] = useState<number | null>(null);
+ 
+  if (activeIdx !== null) {
+    return (
+      <NewsDetailPage
+        item={NEWS[activeIdx]}
+        onBack={() => setActiveIdx(null)}
+      />
+    );
+  }
+ 
+  return <NewsListPage onSelect={(idx) => setActiveIdx(idx)} />;
 }
 
 function CategoriesSection() {
