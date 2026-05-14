@@ -173,7 +173,7 @@ export async function DELETE(request: Request) {
             where: { id },
         });
 
-        return NextResponse.json(null, { status: 204 });
+        return new NextResponse(null, { status: 204 });
     }
     catch (error) {
         console.error('Error deleting section:', error);
