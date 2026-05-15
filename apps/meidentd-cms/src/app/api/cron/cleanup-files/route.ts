@@ -11,7 +11,7 @@ export async function GET(request: Request) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const twentyFourHoursAgo = new Date(Date.now() - 24 * 60 * 60 * 1000);
+    const twentyFourHoursAgo = new Date(Date.now() - 1 * 60 * 1000);
 
     const abandonedFiles = await prisma.pendingUpload.findMany({
       where: {
