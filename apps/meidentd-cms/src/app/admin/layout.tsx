@@ -12,7 +12,8 @@ import {
   ChevronRight, 
   LogOut, 
   Shield, 
-  Activity 
+  Activity,
+  SlidersHorizontal
 } from 'lucide-react';
 import AdminFooter from '@/components/admin/Footer';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -122,6 +123,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <div className="space-y-2">
             <p className="px-4 text-[10px] font-mono font-bold text-slate-500 uppercase tracking-widest mb-2">System Config</p>
             <ul className="space-y-1">
+              <NavItem href="/admin/site-config" icon={SlidersHorizontal} label="Site Config" />
               <li>
                 <button className="w-full flex items-center justify-between px-4 py-3 text-sm font-medium text-slate-500 cursor-not-allowed opacity-50 rounded-lg border border-transparent border-dashed hover:border-slate-700 transition-colors">
                   <div className="flex items-center">
