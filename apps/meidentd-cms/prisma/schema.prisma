@@ -73,7 +73,14 @@ model Document {
 
 model PendingUpload {
   id        String   @id @default(uuid())
-  fileUrl   String   @unique 
-  fileKey   String   
-  createdAt DateTime @default(now()) 
+  fileUrl   String   @unique
+  fileKey   String
+  createdAt DateTime @default(now())
+}
+
+model SiteConfig {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  data      Json
+  updatedAt DateTime @updatedAt
 }
